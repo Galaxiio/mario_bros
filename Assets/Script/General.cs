@@ -21,7 +21,7 @@ public class Champi : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        Mario.transform.localScale = new Vector3(30,30,30);
+        Mario.transform.localScale = new Vector3(25,25,25);
         Champignon.transform.localScale = new Vector3(0,0,0);
     }
 }
