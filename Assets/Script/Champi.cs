@@ -2,26 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CamMario : MonoBehaviour
+public class General : MonoBehaviour
 {
-    private Vector3 decalage;
+    private GameObject Champignon;
     private GameObject Mario;
-
-    public float rotationSpeed = 2.0F;
- 
-    float pitch;
-    float yaw;
 
     // Start is called before the first frame update
     void Start()
     {
+        Champignon = GameObject.Find("Champignon");
         Mario = GameObject.Find("Mario");
-        decalage = Mario.transform.position - this.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = Mario.transform.position - decalage;
+        
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        Debug.Log("Fonction trigger");
+        Debug.Log(other.gameObject.name);
     }
 }

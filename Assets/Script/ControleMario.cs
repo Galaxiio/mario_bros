@@ -5,11 +5,13 @@ using UnityEngine;
 public class ControleMario : MonoBehaviour
 {
     private Animator ani;
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         ani = this.GetComponent<Animator>();
+        rb = this.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -39,6 +41,7 @@ public class ControleMario : MonoBehaviour
 
         if(Input.GetKey(KeyCode.Space))
         {
+            //rb.AddForce(Vector3.up * 10);
             ani.SetBool("isFalling", true);
         }
 
