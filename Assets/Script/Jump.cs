@@ -11,7 +11,8 @@ public class Jump : MonoBehaviour
 
     public LayerMask groundLayer;
     public float raycastDistance = 0.6f;
-    private bool isGrounded;
+    
+    //private bool isGrounded;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +24,12 @@ public class Jump : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, raycastDistance, groundLayer))
-            isGrounded = true;
-        else
-            isGrounded = false;
-
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, raycastDistance, groundLayer)){
+            //isGrounded = true;
+        }
+        else {
+            //isGrounded = false;
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
