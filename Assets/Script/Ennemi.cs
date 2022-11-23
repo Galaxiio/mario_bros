@@ -22,4 +22,10 @@ public class Ennemi : MonoBehaviour
         goomba.destination = Mario.transform.position;
         koopa.destination = Mario.transform.position;
     }
+
+    void OnCollisionEnter(Collision collision) {
+        if(collision.gameObject.CompareTag("Fireball")) {
+            
+        }
+    }
 }

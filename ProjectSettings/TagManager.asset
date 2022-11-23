@@ -9,6 +9,7 @@ TagManager:
   - Mario
   - Koopa
   - Goomba
+  - Fireball
   layers:
   - Default
   - TransparentFX
