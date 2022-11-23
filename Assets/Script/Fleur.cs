@@ -38,7 +38,7 @@ public class Fleur : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) {
         Mario.transform.localScale = new Vector3(25,25,25);
-        Flower.transform.localScale = new Vector3(0,0,0);
+        Destroy(this.gameObject);
         Casquetterenderer.material.SetTexture("_MainTex", textures[0]);
         Pullrenderer.material.SetTexture("_MainTex", textures[1]);
         Salopetterenderer.material.SetTexture("_MainTex", textures[2]);
