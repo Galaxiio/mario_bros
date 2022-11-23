@@ -8,7 +8,8 @@ public class Champi : MonoBehaviour
     private GameObject Mario;
 
     // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         Champignon = GameObject.Find("Champi");
         Mario = GameObject.Find("Mario");
@@ -20,8 +21,12 @@ public class Champi : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision other) {
-        Mario.transform.localScale = new Vector3(25,25,25);
-        Champignon.transform.localScale = new Vector3(0,0,0);
+    private void OnCollisionEnter(Collision collision) {
+        
+        if (collision.gameObject.CompareTag("Mario"))
+        {
+            Mario.transform.localScale = new Vector3(25,25,25);
+            Destroy(this.gameObject);
+        }
     }
 }
