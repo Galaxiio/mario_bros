@@ -25828,3 +25828,6 @@ KS.SceneFusion.Client.Editor.GameObjectEditor:OnDisable()
 2022-11-23 15:31:53.2932 [DEBUG] Scene Fusion version 1.9.3-0
 2022-11-23 15:31:53.3892 [DEBUG] Play mode: True, sync in play mode: False
 2022-11-23 15:32:04.3879 [DEBUG] Play mode: False
+2022-11-23 15:32:22.6467 [DEBUG] Scene Fusion version 1.9.3-0
+2022-11-23 15:32:22.7410 [DEBUG] Play mode: True, sync in play mode: False
+2022-11-23 15:33:04.2477 [DEBUG] Play mode: False
