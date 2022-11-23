@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public float airMultiplier;
     bool readyToJump;
 
+    private bool Grand = false;
+
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
 
@@ -44,6 +46,17 @@ public class PlayerMovement : MonoBehaviour
     private GameObject preffireball;
     public bool FlowerOn = false;
 
+    
+    private Renderer Casquetterenderer;
+    private Renderer Pullrenderer;
+    private Renderer Salopetterenderer;
+    private GameObject casquette;
+    private GameObject pull;
+    private GameObject salopette;
+
+    [SerializeField]
+    private Texture[] textures;
+
     private void Start()
     {
         Mario = GameObject.Find("Mario");
@@ -56,6 +69,14 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
 
         readyToJump = true;
+
+        Mario = GameObject.Find("Mario");
+        casquette = GameObject.Find("casquette");
+        pull = GameObject.Find("pull");
+        salopette = GameObject.Find("salopette");
+        Casquetterenderer = casquette.GetComponent<Renderer>();
+        Pullrenderer = pull.GetComponent<Renderer>();
+        Salopetterenderer = salopette.GetComponent<Renderer>();
     }
 
     private void Update()
@@ -166,6 +187,43 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision) {
         if(collision.gameObject.CompareTag("Flower")) {
             FlowerOn = true;
+            Grand = true;
+        }
+
+        if(collision.gameObject.CompareTag("Champi")) {
+            Grand = true;
+        }
+
+        if(collision.gameObject.CompareTag("Goomba")) {
+            if(FlowerOn) {
+                Casquetterenderer.material.SetTexture("_MainTex", textures[0]);
+                Pullrenderer.material.SetTexture("_MainTex", textures[1]);
+                Salopetterenderer.material.SetTexture("_MainTex", textures[2]);
+                FlowerOn = false;
+            }
+            else if(Grand) {
+                Mario.transform.localScale = new Vector3(20,20,20);
+                Grand = false;
+            }
+            else {
+                Time.timeScale = 0;
+            }
+        }
+
+        if(collision.gameObject.CompareTag("Koopa")) {
+            if(FlowerOn) {
+                Casquetterenderer.material.SetTexture("_MainTex", textures[0]);
+                Pullrenderer.material.SetTexture("_MainTex", textures[1]);
+                Salopetterenderer.material.SetTexture("_MainTex", textures[2]);
+                FlowerOn = false;
+            }
+            else if(Grand) {
+                Mario.transform.localScale = new Vector3(20,20,20);
+                Grand = false;
+            }
+            else {
+                Time.timeScale = 0;
+            }
         }
     }
 }
