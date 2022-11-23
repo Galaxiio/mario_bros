@@ -12,6 +12,8 @@ public class ControleMario : MonoBehaviour
     private float gravity = 7.0f;
     private float jumpForce = 13.0f;
 
+    private bool isGrounded;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +47,7 @@ public class ControleMario : MonoBehaviour
             this.transform.Rotate(0, -2*Time.deltaTime*75.0f, 0);
         }
 
-        if (controller.isGrounded) {
+        if (isGrounded) {
             verticalVelocity = -gravity * Time.deltaTime;
             if(Input.GetKeyDown(KeyCode.Space)) {
                 verticalVelocity = jumpForce;
@@ -59,5 +61,13 @@ public class ControleMario : MonoBehaviour
         controller.Move(moveVector * Time.deltaTime);
 
         ani.SetFloat("Speed", vitesse);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("sol"))
+        {
+            isGrounded = true;
+        }
     }
 }
