@@ -7,6 +7,8 @@ TagManager:
   - Champi
   - Flower
   - Mario
+  - Koopa
+  - Goomba
   layers:
   - Default
   - TransparentFX
